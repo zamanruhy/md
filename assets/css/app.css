@@ -2028,6 +2028,7 @@ video {
   .awards__slider-image {
     /* height: 375.95px; */
     width: 100%;
+    display: block;
     aspect-ratio: 1.43;
   }
 
