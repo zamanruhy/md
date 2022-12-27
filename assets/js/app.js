@@ -144,7 +144,13 @@ function script$1() {
   });
   EmblaCarousel(sliderEl, {
     loop: true,
-    speed: 10
+    speed: 10,
+    active: false,
+    breakpoints: {
+      "(min-width: 576px)": {
+        active: true
+      }
+    }
   }, [autoplay]);
 }
 {
