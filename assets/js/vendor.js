@@ -1128,7 +1128,7 @@ function EventHandler() {
   };
   return self2;
 }
-var defaultOptions = {
+var defaultOptions$1 = {
   align: "center",
   axis: "x",
   containScroll: "",
@@ -1222,7 +1222,7 @@ function EmblaCarousel(nodes, userOptions, userPlugins) {
   var reInit = reActivate;
   var destroyed = false;
   var engine;
-  var optionsBase = optionsHandler.merge(defaultOptions, EmblaCarousel.globalOptions);
+  var optionsBase = optionsHandler.merge(defaultOptions$1, EmblaCarousel.globalOptions);
   var options = optionsHandler.merge(optionsBase);
   var pluginList = [];
   var pluginApis;
@@ -1392,6 +1392,101 @@ function EmblaCarousel(nodes, userOptions, userPlugins) {
 }
 EmblaCarousel.globalOptions = void 0;
 EmblaCarousel.optionsHandler = OptionsHandler;
+var defaultOptions = {
+  active: true,
+  breakpoints: {},
+  delay: 4e3,
+  jump: false,
+  playOnInit: true,
+  stopOnInteraction: true,
+  stopOnMouseEnter: false,
+  stopOnLastSnap: false,
+  rootNode: null
+};
+function Autoplay(userOptions) {
+  var optionsHandler = EmblaCarousel.optionsHandler();
+  var optionsBase = optionsHandler.merge(defaultOptions, Autoplay.globalOptions);
+  var options;
+  var carousel;
+  var interaction;
+  var timer = 0;
+  var jump = false;
+  function init(embla) {
+    carousel = embla;
+    options = optionsHandler.atMedia(self2.options);
+    jump = options.jump;
+    interaction = options.stopOnInteraction ? destroy : stop;
+    var eventStore = carousel.internalEngine().eventStore;
+    var emblaRoot = carousel.rootNode();
+    var root = options.rootNode && options.rootNode(emblaRoot) || emblaRoot;
+    carousel.on("pointerDown", interaction);
+    if (!options.stopOnInteraction)
+      carousel.on("pointerUp", reset);
+    if (options.stopOnMouseEnter) {
+      eventStore.add(root, "mouseenter", interaction);
+      if (!options.stopOnInteraction)
+        eventStore.add(root, "mouseleave", reset);
+    }
+    eventStore.add(document, "visibilitychange", function() {
+      if (document.visibilityState === "hidden")
+        return stop();
+      reset();
+    });
+    eventStore.add(window, "pagehide", function(event) {
+      if (event.persisted)
+        stop();
+    });
+    if (options.playOnInit)
+      play();
+  }
+  function destroy() {
+    carousel.off("pointerDown", interaction);
+    if (!options.stopOnInteraction)
+      carousel.off("pointerUp", reset);
+    stop();
+    timer = 0;
+  }
+  function play(jumpOverride) {
+    stop();
+    if (typeof jumpOverride !== "undefined")
+      jump = jumpOverride;
+    timer = window.setTimeout(next, options.delay);
+  }
+  function stop() {
+    if (!timer)
+      return;
+    window.clearTimeout(timer);
+  }
+  function reset() {
+    if (!timer)
+      return;
+    stop();
+    play();
+  }
+  function next() {
+    var index = carousel.internalEngine().index;
+    var kill = options.stopOnLastSnap && index.get() === index.max;
+    if (kill)
+      return destroy();
+    if (carousel.canScrollNext()) {
+      carousel.scrollNext(jump);
+    } else {
+      carousel.scrollTo(0, jump);
+    }
+    play();
+  }
+  var self2 = {
+    name: "autoplay",
+    options: optionsHandler.merge(optionsBase, userOptions),
+    init,
+    destroy,
+    play,
+    stop,
+    reset
+  };
+  return self2;
+}
+Autoplay.globalOptions = void 0;
 const t = (t2) => "object" == typeof t2 && null !== t2 && t2.constructor === Object && "[object Object]" === Object.prototype.toString.call(t2), e = (...i2) => {
   let s2 = false;
   "boolean" == typeof i2[0] && (s2 = i2.shift());
@@ -3387,6 +3482,7 @@ R.version = "4.0.31", R.defaults = M, R.openers = /* @__PURE__ */ new Map(), R.P
 for (const [t2, e2] of Object.entries(R.Plugins || {}))
   "function" == typeof e2.create && e2.create(R);
 export {
+  Autoplay as A,
   EmblaCarousel as E,
   R
 };

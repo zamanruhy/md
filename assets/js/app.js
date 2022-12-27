@@ -1,4 +1,4 @@
-import { E as EmblaCarousel, R } from "./vendor.js";
+import { E as EmblaCarousel, A as Autoplay, R } from "./vendor.js";
 const base = "";
 const components = "";
 const Social = "";
@@ -6,7 +6,7 @@ const Footer = "";
 const Nav = "";
 const Button = "";
 const Search = "";
-function script$6() {
+function script$7() {
   const el = document.querySelector(".search");
   if (!el)
     return;
@@ -21,10 +21,10 @@ function script$6() {
   });
 }
 {
-  script$6();
+  script$7();
 }
 const Hamburger = "";
-function script$5() {
+function script$6() {
   const el = document.querySelector(".hamburger");
   if (!el)
     return;
@@ -40,11 +40,11 @@ function script$5() {
   });
 }
 {
-  script$5();
+  script$6();
 }
 const Header = "";
 const Drawer = "";
-function script$4() {
+function script$5() {
   const el = document.querySelector(".drawer");
   if (!el)
     return;
@@ -61,9 +61,9 @@ function script$4() {
   });
 }
 {
-  script$4();
+  script$5();
 }
-function script$3() {
+function script$4() {
   const el = document.querySelector(".header");
   if (!el)
     return;
@@ -73,10 +73,10 @@ function script$3() {
   });
 }
 {
-  script$3();
+  script$4();
 }
 const About = "";
-function script$2() {
+function script$3() {
   const el = document.querySelector(".about");
   if (!el)
     return;
@@ -101,10 +101,10 @@ function script$2() {
   nextEl.addEventListener("click", (e) => embla.scrollNext());
 }
 {
-  script$2();
+  script$3();
 }
 const Awards = "";
-function script$1() {
+function script$2() {
   const el = document.querySelector(".awards");
   if (!el)
     return;
@@ -129,10 +129,27 @@ function script$1() {
   nextEl.addEventListener("click", (e) => embla.scrollNext());
 }
 {
-  script$1();
+  script$2();
 }
 const Features = "";
 const Intro = "";
+function script$1() {
+  const el = document.querySelector(".intro");
+  if (!el)
+    return;
+  const sliderEl = el.querySelector(".intro__slider");
+  const autoplay = Autoplay({
+    delay: 5e3,
+    stopOnInteraction: false
+  });
+  EmblaCarousel(sliderEl, {
+    loop: true,
+    speed: 10
+  }, [autoplay]);
+}
+{
+  script$1();
+}
 const Persons = "";
 const Input = "";
 const Request = "";
