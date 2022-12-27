@@ -2026,18 +2026,14 @@ video {
 }
 
   .awards__slider-image {
-    /* height: 375.95px; */
     width: 100%;
     display: block;
     aspect-ratio: 1.43;
   }
 
-  /* border: 1px solid #bfbfbf; */
-
   .awards__slider-image img {
       width: 100%;
       height: 100%;
-      /* object-fit: cover; */
       -o-object-fit: contain;
          object-fit: contain;
     }
