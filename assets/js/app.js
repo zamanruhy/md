@@ -1,4 +1,4 @@
-import { E as EmblaCarousel } from "./vendor.js";
+import { E as EmblaCarousel, R } from "./vendor.js";
 const base = "";
 const components = "";
 const Social = "";
@@ -158,3 +158,5 @@ function script() {
   script();
 }
 const utilities = "";
+const fancybox = "";
+window.Fancybox = R;
