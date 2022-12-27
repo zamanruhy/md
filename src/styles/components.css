@@ -1,0 +1,56 @@
+@import "tailwindcss/components";
+
+@layer components {
+  .container {
+    @apply max-2xl:max-w-[1200px] mx-auto box-content max-w-[1650px] px-5;
+  }
+
+  .app {
+    @apply flex min-h-full flex-col;
+
+    &__main {
+      @apply grow;
+    }
+  }
+
+  .title {
+    @apply max-2xl:text-[36px] max-md:text-[26px] font-display text-[48px] font-bold leading-[1.23] text-[#12354b];
+  }
+
+  .control {
+    flex: none;
+    width: 56.13px;
+    height: 56.13px;
+    border-radius: 50%;
+    border: 2px solid #2e3a59;
+    position: relative;
+    @apply max-2xl:w-[50px] max-2xl:h-[50px] transition lg:hover:bg-[#2e3a59] lg:hover:before:[filter:brightness(0)_invert(1)];
+
+    &:before {
+      content: "";
+      width: 13px;
+      height: 22px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background: url("data:image/svg+xml,%3Csvg width='13' height='22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.85.5.596 10.752l10.252 10.253 1.71-1.708-8.545-8.545 8.545-8.544L10.85.5Z' fill='%232E3A59'/%3E%3C/svg%3E")
+        no-repeat center/cover;
+      @apply transition;
+    }
+
+    &_prev {
+      &:before {
+        left: -4px;
+      }
+    }
+    &_next {
+      &:before {
+        right: -4px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

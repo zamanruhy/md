@@ -1,0 +1,82 @@
+.service {
+  @apply contents;
+
+  @media (min-width: 1600px) {
+    &:nth-last-child(3) &__button {
+      grid-column-start: 2;
+    }
+    &:nth-last-child(2) &__button {
+      grid-column-start: 3;
+    }
+    &:nth-last-child(1) &__button {
+      grid-column-start: 4;
+    }
+  }
+
+  &__button {
+    @apply max-md:h-[206px] flex h-[236px] flex-col
+      overflow-hidden rounded-[5px] bg-[#fbfbfb] font-display
+       font-bold transition hover:text-white hover:shadow-[0_20px_50px_rgba(165,165,165,0.2)];
+  }
+  &_open &__button {
+    @apply shadow-[0_20px_50px_rgba(165,165,165,0.2)];
+  }
+  &__caption {
+    @apply flex w-full grow flex-col items-center justify-center px-4 transition [.service__button:hover_&]:bg-[#38bcea];
+  }
+  &_open &__caption {
+    @apply bg-[#38bcea];
+  }
+  &__pic {
+    @apply max-md:h-[60px] max-md:scale-75 mb-[12px] flex h-[80px] items-center justify-center;
+  }
+  &__icon {
+    @apply fill-[#38bcea] transition [.service__button:hover_&]:fill-white;
+  }
+  &_open &__icon {
+    @apply fill-white;
+  }
+  &__name {
+    @apply max-2xl:text-[24px] max-md:text-[20px] text-[26px] text-[#454545] transition [.service__button:hover_&]:text-white;
+    line-height: 1.2;
+    min-height: 1.8em;
+  }
+  &_open &__name {
+    @apply text-white;
+  }
+  &__pointer {
+    @apply mb-[-48px] flex h-[48px] w-full items-center justify-center bg-[#fcfcfc] transition-all;
+
+    @media (hover: hover) {
+      @apply [.service__button:hover_&]:mb-0;
+    }
+  }
+  &__pointer-icon {
+    @apply relative top-px h-[11px] fill-[#38bcea];
+  }
+  &_open &__pointer-icon {
+    @apply top-auto bottom-px rotate-180;
+  }
+  &__info {
+    @apply col-span-full hidden md:pt-[15px] md:pb-[33px];
+  }
+  &_open &__info {
+    @apply grid gap-[18px];
+  }
+  &__info-item {
+    @apply flex;
+  }
+  &__info-details {
+    @apply grow;
+  }
+  &__info-summary {
+    @apply max-2xl:h-[70px] max-lg:h-[60px] max-2xl:text-[20px] max-md:text-[18px] flex h-[80px] cursor-pointer items-center bg-[#fbfbfb] px-9 text-[26px] text-black;
+  }
+  &__info-extra {
+    @apply max-2xl:text-[18px] max-md:text-[16px] px-9 pt-5 pb-7 text-[24px];
+  }
+  &__info-button {
+    @apply max-2xl:text-[18px] max-md:text-[16px] max-md:mt-5 max-lg:h-[60px] max-2xl:h-[70px] h-[80px] w-[200px] shrink-0 self-start
+    rounded-[2px] px-5 text-[24px] font-bold shadow-[0_1px_9px_rgba(0,0,0,0.2)] hover:shadow-none 2xl:w-[296px];
+  }
+}

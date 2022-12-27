@@ -1,0 +1,29 @@
+.footer {
+  background-color: #f2f3f5;
+  font-size: 15px;
+  line-height: 1.4549;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    @apply max-lg:grid max-lg:grid-cols-1 max-lg:gap-[40px] max-lg:text-center max-md:gap-[30px];
+  }
+  &__copyright {
+    text-align: center;
+  }
+  &__link {
+    @apply underline hover:no-underline;
+
+    br {
+      @apply max-lg:hidden;
+    }
+  }
+  &__logo {
+    width: 58px;
+    @apply max-lg:mx-auto;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "vite-plugin-mini-svg",
+  "version": "0.1.0",
+  "description": "Vite plugin to optimize and inline svg files",
+  "type": "module",
+  "keywords": [
+    "vite-plugin",
+    "svgo",
+    "datauri"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruslan Shakirov",
+  "license": "MIT",
+  "dependencies": {
+    "mini-svg-data-uri": "^1.4.4",
+    "svgo": "^2.8.0",
+    "vite": "^3.0.8"
+  }
+}

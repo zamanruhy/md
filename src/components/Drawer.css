@@ -1,0 +1,61 @@
+.drawer {
+  @apply absolute top-full left-0 right-0 bg-[#1db1e7] px-5 pt-4 pb-6 text-white transition-all xl:hidden;
+  clip-path: inset(0 0 100% 0);
+  visibility: hidden;
+
+  &_open {
+    clip-path: inset(0);
+    visibility: visible;
+  }
+
+  &__nav {
+  }
+  &__list {
+    @apply flex flex-col;
+  }
+  &__item {
+  }
+  &__link {
+    @apply block py-3 font-accent text-[15px] text-[#ffffff] transition hover:opacity-80;
+  }
+
+  &__footer {
+    @apply mt-6 -ml-0.5 flex flex-col gap-5;
+  }
+
+  &__pin {
+    @apply max-2xl:mr-[30px] mr-[40px] flex items-center;
+  }
+  &__pin-icon {
+    @apply relative top-[-2px] mr-[10px] h-[25px] shrink-0 fill-current;
+  }
+  &__pin-text {
+    @apply text-[15px] leading-[1.13];
+  }
+
+  &__work {
+    @apply mr-[40px] flex items-center;
+  }
+  &__work-icon {
+    @apply relative top-[-1px] mr-[13px] h-[25px] shrink-0 fill-current;
+  }
+  &__work-text {
+    @apply font-display text-[15px] leading-[1.2];
+  }
+  &__work-time {
+    @apply mr-[0.45em] inline-block whitespace-nowrap;
+  }
+  &__work-suf {
+    @apply inline-block whitespace-nowrap opacity-70;
+  }
+
+  &__phone {
+    @apply max-2xl:mr-[30px] mr-[40px] flex items-center py-1 transition hover:opacity-70;
+  }
+  &__phone-icon {
+    @apply relative top-[-1px] mr-[6px] h-[18px] shrink-0 fill-current;
+  }
+  &__phone-text {
+    @apply max-2xl:text-[16px] whitespace-nowrap font-display text-[18px] font-bold;
+  }
+}

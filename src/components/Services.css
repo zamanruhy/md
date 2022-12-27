@@ -1,0 +1,14 @@
+.services {
+  margin-bottom: 118px;
+  @apply max-md:mb-[80px];
+
+  &__title {
+    @apply mb-[14px];
+  }
+  &__lead {
+    @apply max-2xl:text-[18px] max-md:text-[16px] max-lg:mb-[40px] mb-[68px] max-w-[440px] text-[24px] leading-[1.17] text-[#737373];
+  }
+  &__items {
+    @apply grid grid-flow-dense grid-cols-1 gap-x-[40px] gap-y-4 sm:grid-cols-2 sm:gap-y-[35px] lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5;
+  }
+}

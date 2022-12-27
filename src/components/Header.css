@@ -1,0 +1,73 @@
+.header {
+  @apply max-sm:border-b relative z-[1000];
+
+  &__inner {
+    @apply max-2xl:h-[90px] max-md:h-[78px] max-sm:h-[66px] relative flex h-[108px] items-center;
+  }
+  &__left {
+    @apply max-xl:contents relative flex items-center self-stretch;
+  }
+  &__social {
+    @apply max-2xl:hidden mr-[66px];
+  }
+  &__nav {
+    @apply max-xl:hidden relative -top-0.5;
+  }
+  &__search-button {
+    @apply max-xl:m-0 ml-[30px] mr-0.5 rounded-[2px] p-[10px] text-[#1a3444] hover:text-[#01678a];
+
+    svg {
+      @apply h-[18px] fill-current;
+    }
+  }
+  &__spacer {
+    @apply min-w-[40px] grow;
+  }
+
+  &__pin {
+    @apply max-2xl:mr-[30px] max-xl:hidden mr-[40px] flex items-center;
+  }
+  &__pin-icon {
+    @apply relative top-[-2px] mr-[10px] h-[25px] shrink-0 fill-[#1a3444];
+  }
+  &__pin-text {
+    @apply text-[15px] leading-[1.13] text-[#474747];
+  }
+
+  &__work {
+    @apply max-2xl:hidden mr-[40px] flex items-center;
+  }
+  &__work-icon {
+    @apply relative top-[-1px] mr-[13px] h-[25px] shrink-0 fill-[#2e3a59];
+  }
+  &__work-text {
+    @apply font-display text-[15px] leading-[1.2];
+  }
+  &__work-time {
+    @apply mr-[0.45em] inline-block whitespace-nowrap text-[#12354b];
+  }
+  &__work-suf {
+    @apply inline-block whitespace-nowrap text-[#919191];
+  }
+
+  &__phone {
+    @apply max-2xl:mr-[30px] max-xl:hidden mr-[40px] flex items-center py-1 transition hover:opacity-70;
+  }
+  &__phone-icon {
+    @apply relative top-[-1px] mr-[6px] h-[18px] shrink-0 fill-[#1a3444];
+  }
+  &__phone-text {
+    @apply max-2xl:text-[16px] whitespace-nowrap font-display text-[18px] font-bold;
+  }
+
+  &__callback {
+    @apply max-md:hidden h-[41px] rounded-[3px] px-5 text-[15px] 2xl:w-[186px];
+  }
+
+  &__mobile-callback {
+    @apply flex h-[34px] w-[34px] items-center justify-center rounded-sm md:hidden;
+  }
+  &__mobile-callback-icon {
+    @apply h-[26px] fill-[#1a3444];
+  }
+}

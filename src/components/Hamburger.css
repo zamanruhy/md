@@ -1,0 +1,17 @@
+.hamburger {
+  @apply max-sm:ml-5 ml-[30px] box-content flex h-[18px] w-[22px] flex-col justify-between rounded py-2.5 px-2 transition xl:hidden;
+
+  &__bar {
+    @apply h-[2px] w-[22px] bg-current transition;
+  }
+
+  &_active &__bar:nth-child(1) {
+    @apply translate-y-[8px] rotate-45 scale-x-110;
+  }
+  &_active &__bar:nth-child(2) {
+    @apply opacity-0;
+  }
+  &_active &__bar:nth-child(3) {
+    @apply -translate-y-[8px] -rotate-45 scale-x-110;
+  }
+}

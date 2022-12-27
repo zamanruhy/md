@@ -1,0 +1,34 @@
+.search {
+  @apply absolute inset-0 z-[100] hidden items-center bg-white;
+
+  &_open {
+    @apply flex;
+  }
+
+  &__inner {
+    @apply relative w-full;
+  }
+  &__input {
+    @apply h-[40px] w-full rounded-[3px] border border-[#bfbfbf]/40 bg-white pr-[100px] pl-4 text-[15px] transition focus:outline-none;
+  }
+  &__actions {
+    @apply pointer-events-none absolute inset-y-0 right-0 flex w-[200px] justify-end;
+  }
+  &__button {
+    @apply pointer-events-auto flex aspect-[1.1] items-center justify-center text-[#262626]/30 transition hover:text-[#262626]/70;
+
+    svg {
+      @apply h-[18px] fill-current;
+    }
+  }
+  &__divider {
+    @apply h-[40%] w-px self-center bg-[#bfbfbf]/40;
+  }
+  &__close {
+    @apply pointer-events-auto flex aspect-[1.1] items-center justify-center text-[#262626]/30 transition hover:text-[#262626]/70;
+
+    svg {
+      @apply h-[16px] fill-current;
+    }
+  }
+}

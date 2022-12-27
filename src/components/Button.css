@@ -1,0 +1,11 @@
+.button {
+  @apply relative inline-flex cursor-pointer items-center justify-center text-center align-middle font-accent transition;
+
+  &_primary {
+    @apply bg-[#38bcea] text-white hover:bg-[#1db1e7];
+  }
+
+  &:disabled {
+    @apply pointer-events-none bg-slate-300 text-slate-500;
+  }
+}

@@ -1,0 +1,23 @@
+.social {
+  @apply flex items-center gap-4;
+
+  &_lg {
+    @apply max-lg:justify-center gap-[32px];
+  }
+
+  &__item {
+    @apply shrink-0;
+  }
+  &__link {
+    @apply block rounded-[2px] p-1 text-[#2E3A59] transition hover:opacity-70;
+
+    svg {
+      @apply h-[22px] fill-current;
+    }
+  }
+  &_lg &__link {
+    svg {
+      @apply h-[46px];
+    }
+  }
+}

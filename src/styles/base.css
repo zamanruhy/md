@@ -1,0 +1,51 @@
+@import "tailwindcss/base";
+
+@layer base {
+  @font-face {
+    font-family: "Roboto";
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src: url(/assets/fonts/Roboto-Light.woff2) format("woff2"),
+      url(/assets/fonts/Roboto-Light.woff) format("woff");
+  }
+  @font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url(/assets/fonts/Roboto-Regular.woff2) format("woff2"),
+      url(/assets/fonts/Roboto-Regular.woff) format("woff");
+  }
+  @font-face {
+    font-family: "Panton";
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    src: url(/assets/fonts/Roboto-Regular.woff2) format("woff2"),
+      url(/assets/fonts/Roboto-Regular.woff) format("woff");
+  }
+  @font-face {
+    font-family: "Panton";
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url(/assets/fonts/Panton-Bold.woff2) format("woff2"),
+      url(/assets/fonts/Panton-Bold.woff) format("woff");
+  }
+
+  html {
+    @apply h-full scroll-smooth antialiased;
+  }
+  body {
+    @apply max-md:text-[16px] max-2xl:text-[20px] h-full bg-white font-brand text-[24px] leading-[1.2] text-[#262626];
+  }
+
+  h3 {
+    font-size: 36px;
+    line-height: 1.22;
+    color: #272727;
+    font-weight: bold;
+    @apply max-2xl:text-[24px] max-md:text-[20px] font-display;
+  }
+}

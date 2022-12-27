@@ -1,0 +1,78 @@
+{
+  "name": "vite-mpa-starter",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "MPA starter built on Vite",
+  "author": "Ruslan Shakirov",
+  "license": "MIT",
+  "keywords": [
+    "vite",
+    "mpa",
+    "ssg",
+    "solid",
+    "solid-js",
+    "postcss",
+    "svg"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "vite",
+    "dev_": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist",
+    "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
+    "prerender": "npm run build && node prerender && rimraf dist/server",
+    "preview": "npm run prerender && vite preview",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,html}\"",
+    "ghpages": "deploy.sh"
+  },
+  "dependencies": {
+    "embla-carousel": "^7.0.2",
+    "imask": "^6.4.2",
+    "solid-js": "^1.5.3"
+  },
+  "devDependencies": {
+    "@solidjs/router": "^0.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "@vitejs/plugin-legacy": "^2.0.1",
+    "autoprefixer": "^10.4.8",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.16",
+    "postcss-import": "^14.1.0",
+    "postcss-mixins": "^9.0.3",
+    "postcss-pxtorem": "^6.0.0",
+    "postcss-rem-to-pixel": "^4.1.2",
+    "postcss-simple-vars": "^6.0.3",
+    "postcss-url": "^10.1.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "solid-meta": "^0.28.1",
+    "tailwindcss": "^3.2.4",
+    "terser": "^5.15.0",
+    "typescript": "^4.8.2",
+    "vite": "^3.0.8",
+    "vite-imagetools": "^4.0.7",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-mini-svg": "workspace:*",
+    "vite-plugin-solid": "^2.3.0",
+    "vite-plugin-solid-svg": "^0.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --ext",
+    "**/*.{js,jsx,ts,tsx,json,md,css,html}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
